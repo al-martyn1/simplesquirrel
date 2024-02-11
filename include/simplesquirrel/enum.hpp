@@ -44,7 +44,7 @@ namespace ssq {
         template<typename T>
         void addSlot(const SQChar* name, const T& value) {
             sq_pushobject(vm, obj);
-            sq_pushstring(vm, name, scstrlen(name));
+            sq_pushstring(vm, name, (SQInteger)scstrlen(name));
             detail::push<T>(vm, value);
             sq_newslot(vm, -3, false);
             sq_pop(vm,1); // pop table

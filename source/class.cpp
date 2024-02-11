@@ -70,7 +70,7 @@ namespace ssq {
             
         // Find the table
         sq_pushobject(vm, obj);
-        sq_pushstring(vm, name, scstrlen(name));
+        sq_pushstring(vm, name, (SQInteger)scstrlen(name));
 
         if (SQ_FAILED(sq_get(vm, -2))) {
             // Does not exists
@@ -84,7 +84,7 @@ namespace ssq {
             sq_pop(vm, 1);
 
             sq_pushobject(vm, obj); // Push class obj
-            sq_pushstring(vm, name, scstrlen(name));
+            sq_pushstring(vm, name, (SQInteger)scstrlen(name));
             sq_pushobject(vm, table.getRaw());
             sq_newclosure(vm, dlg, 1);
 

@@ -43,7 +43,7 @@ namespace ssq {
     Enum Table::addEnumGlobal(const SQChar* name) {
         Enum enm(vm);
         sq_pushconsttable(vm);
-        sq_pushstring(vm, name, scstrlen(name));
+        sq_pushstring(vm, name, (SQInteger)scstrlen(name));
         detail::push<Object>(vm, enm);
         sq_newslot(vm, -3, false);
         sq_pop(vm,1); // pop table
@@ -54,7 +54,7 @@ namespace ssq {
         Enum enm(vm);
         //sq_pushconsttable(vm);
         sq_pushobject(vm, obj);
-        sq_pushstring(vm, name, scstrlen(name));
+        sq_pushstring(vm, name, (SQInteger)scstrlen(name));
         detail::push<Object>(vm, enm);
         sq_newslot(vm, -3, false);
         sq_pop(vm,1); // pop table
@@ -64,7 +64,7 @@ namespace ssq {
     Table Table::addTable(const SQChar* name) {
         Table table(vm);
         sq_pushobject(vm, obj);
-        sq_pushstring(vm, name, scstrlen(name));
+        sq_pushstring(vm, name, (SQInteger)scstrlen(name));
         detail::push<Object>(vm, table);
         sq_newslot(vm, -3, false);
         sq_pop(vm,1); // pop table

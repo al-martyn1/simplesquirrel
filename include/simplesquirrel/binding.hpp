@@ -97,7 +97,7 @@ namespace ssq {
 
             Object clsObj(vm);
             
-            sq_pushstring(vm, name, scstrlen(name));
+            sq_pushstring(vm, name, (SQInteger)scstrlen(name));
             sq_newclass(vm, false);
 
             HSQOBJECT obj;
@@ -190,7 +190,7 @@ namespace ssq {
         static void addFunc(HSQUIRRELVM vm, const SQChar* name, const std::function<R(Args...)>& func) {
             static const std::size_t nparams = sizeof...(Args);
 
-            sq_pushstring(vm, name, scstrlen(name));
+            sq_pushstring(vm, name, (SQInteger)scstrlen(name));
 
             bindUserData(vm, func);
             static SQChar params[33];
@@ -207,7 +207,7 @@ namespace ssq {
         static void addMemberFunc(HSQUIRRELVM vm, const SQChar* name, const std::function<R(Args...)>& func, bool isStatic) {
             static const std::size_t nparams = sizeof...(Args);
 
-            sq_pushstring(vm, name, scstrlen(name));
+            sq_pushstring(vm, name, (SQInteger)scstrlen(name));
 
             bindUserData(vm, func);
             static SQChar params[33];
