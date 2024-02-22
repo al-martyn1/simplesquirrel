@@ -226,7 +226,8 @@ namespace ssq {
             detail::push<Object>(vm, tbl);
             sq_newslot(vm, -3, false);
             sq_pop(vm,1); // pop table
-            return std::move(tbl);
+            // return std::move(tbl);
+            return tbl;
         }
 
         /**
